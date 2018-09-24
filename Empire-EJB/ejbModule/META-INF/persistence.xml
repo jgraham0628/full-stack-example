@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated startup tags for JPA 2.1 -->
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<!-- Name of the persistence unit being used for the application -->
+	<persistence-unit name="empire">
+		<!-- The persistence library to use for string information to the database. Default for EJB is Hibernate -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- Name of the configured datasource for the database access. This is set up in the JBoss standalone.xml -->
+		<jta-data-source>java:/EmpireDS</jta-data-source>
+		<properties>
+			<!-- Auto detection tells the persistence unit how to locate the entities. In this case we are using 
+			annotations on the class level -->
+			<property name="hibernate.archive.autodetection" value="class" />
+			<!-- The dialect that Hibernate will translate the EJB-QL to for database storage and retrieval -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<!-- Use this in debug to showcase what the SQL is translated into under the native value -->
+			<property name="hibernate.show_sql" value="false"/>
+			<!-- The type of method used for table generation. We use update but can use drop/create if need be -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence> 

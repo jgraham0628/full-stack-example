@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Galactic Imperial Domination Coordinator</title>
+
+        <style type="text/css">
+            html {
+                background-image: url('./img/imp_ens.jpg');
+                background-size: cover;
+            }
+
+            .text {
+                color: ffffff;
+            }
+        </style>
+
+        <link type="text/css" rel="stylesheet" href="./styles/lib/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="./styles/lib/bootstrap-vue.css"/>
+        <link type="text/css" rel="stylesheet" href="./styles/mods/facilities.css"/>
+
+    </head>
+    <body>
+        <div id="navigation">
+            <b-navbar fixed="top" type="dark" variant="dark" toggleable>
+                <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
+                <b-collapse is-nav id="container_dropdown_collapse">
+                    <b-navbar-nav>
+                        <b-nav-item-dropdown text="Operations">
+                            <b-dropdown-item v-bind:id="option.id" v-for="option in options" @click="toggleFacilities()">{{ option.name }}</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                        <b-nav-item right></b-nav-item>
+                    </b-navbar-nav>
+                    <b-navbar-nav class="ml-auto">
+                        <b-nav-item-dropdown split>
+                            <template slot="button-content">
+                                <strong>{{ username }}</strong>
+                            </template>
+                            <b-dropdown-item-button>User Profile</b-dropdown-item-button>
+                            <b-dropdown-item-button>Logout</b-dropdown-item-button>
+                        </b-nav-item-dropdown>
+                    </b-navbar-nav>
+                </b-collapse>
+            </b-navbar>
+        </div>
+        <div id="container">
+            <facilities-list ref="facilities"></facilities-list>
+        </div>
+        <div id="footer"></div>
+        
+        <script src="./js-includes/lib/vue.js"></script>
+        <script src="./js-includes/lib/vue-resource.js"></script>
+        <script src="./js-includes/lib/dialog-popup.js"></script>
+        <script src="./js-includes/lib/polyfill.min.js"></script>
+        <script src="./js-includes/lib/bootstrap-vue.js"></script>
+        <script src="./js-includes/mods/facilities.js"></script>
+        <script src="./js-includes/mods/main.js"></script>
+    </body>
+</html>
